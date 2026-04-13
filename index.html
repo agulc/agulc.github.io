@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agustin Leonardo Cao | Full-Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        /* Language Toggle Logic */
+        html[lang="en"] .lang-es { display: none !important; }
+        html[lang="es"] .lang-en { display: none !important; }
+        /* Theme Toggle Logic */
+        html.dark .theme-light-icon { display: none !important; }
+        html:not(.dark) .theme-dark-icon { display: none !important; }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-sans antialiased transition-colors duration-300">
+
+    <nav class="sticky top-0 z-10 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm shadow-sm border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-bold text-xl tracking-tight text-blue-600 dark:text-blue-400">ALC.</a>
+            <div class="flex items-center space-x-4 sm:space-x-6 text-sm font-medium">
+                <a href="#about" class="hidden sm:block hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    <span class="lang-en">About</span>
+                    <span class="lang-es">Sobre mí</span>
+                </a>
+                <a href="#experience" class="hidden sm:block hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    <span class="lang-en">Experience</span>
+                    <span class="lang-es">Experiencia</span>
+                </a>
+                <a href="#skills" class="hidden sm:block hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    <span class="lang-en">Skills</span>
+                    <span class="lang-es">Habilidades</span>
+                </a>
+                <a href="#projects" class="hidden sm:block hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    <span class="lang-en">Projects</span>
+                    <span class="lang-es">Proyectos</span>
+                </a>
+                
+                <div class="flex items-center space-x-2 pl-2 sm:pl-4 sm:border-l border-slate-200 dark:border-slate-700">
+                    <button onclick="toggleLanguage()" class="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold uppercase tracking-wider rounded-md transition-colors border border-slate-200 dark:border-slate-700">
+                        <span class="lang-en">🇪🇸 ES</span>
+                        <span class="lang-es">🇬🇧 EN</span>
+                    </button>
+                    <button onclick="toggleTheme()" class="p-1.5 rounded-md bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 transition-colors" aria-label="Toggle Dark Mode">
+                        <svg class="theme-light-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                        <svg class="theme-dark-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="max-w-5xl mx-auto px-6 py-24 text-center sm:text-left sm:flex sm:items-center sm:justify-between">
+        <div class="sm:w-2/3">
+            <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mb-4 text-slate-900 dark:text-white transition-colors">
+                <span class="lang-en">Hi, I'm</span><span class="lang-es">Hola, soy</span> <span class="text-blue-600 dark:text-blue-400">Agustin Leonardo Cao</span>.
+            </h1>
+            <h2 class="text-xl sm:text-2xl text-slate-600 dark:text-slate-400 mb-6 font-light transition-colors">
+                <span class="lang-en">Computer Engineer & Full-Stack Developer based in La Plata, Argentina.</span>
+                <span class="lang-es">Ingeniero en Computación y Desarrollador Full-Stack viviendo en La Plata, Argentina.</span>
+            </h2>
+            <p class="text-lg text-slate-500 dark:text-slate-400 mb-8 leading-relaxed max-w-2xl transition-colors">
+                <span class="lang-en">I specialize in building scalable backend systems, RESTful APIs, and modern frontend interfaces within Agile environments. Passionate about microservices, CI/CD, and leveraging local AI solutions to optimize business processes.</span>
+                <span class="lang-es">Me especializo en construir sistemas backend escalables, APIs RESTful e interfaces frontend modernas en entornos Ágiles. Apasionado por los microservicios, CI/CD y la implementación de soluciones locales de IA para optimizar procesos de negocio.</span>
+            </p>
+            <div class="space-x-4">
+                <a href="mailto:alcaolpg@gmail.com" class="inline-block bg-blue-600 dark:bg-blue-500 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors">
+                    <span class="lang-en">Get in Touch</span>
+                    <span class="lang-es">Contactame</span>
+                </a>
+                <a href="https://linkedin.com/in/agulc" target="_blank" class="inline-block bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-semibold px-6 py-3 rounded-lg shadow border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="bg-white dark:bg-slate-900 py-20 border-y border-slate-200 dark:border-slate-800 transition-colors duration-300">
+        <div class="max-w-5xl mx-auto px-6">
+            <h3 class="text-3xl font-bold mb-8 text-slate-900 dark:text-white">
+                <span class="lang-en">About Me</span>
+                <span class="lang-es">Sobre mí</span>
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
+                <div>
+                    <p class="mb-4">
+                        <span class="lang-en">I am a Computer Engineer holding a degree from the National University of La Plata (UNLP), where I am currently pursuing a Master's in Software Engineering. I also serve as a University Professor, teaching algorithms, data structures, and object-oriented programming.</span>
+                        <span class="lang-es">Soy Ingeniero en Computación recibido en la Universidad Nacional de La Plata (UNLP), donde actualmente curso una Maestría en Ingeniería de Software. También me desempeño como Profesor Universitario, enseñando algoritmos, estructuras de datos y programación orientada a objetos.</span>
+                    </p>
+                    <p>
+                        <span class="lang-en">I am fluent in English (C2) and currently studying German. Beyond software engineering, I have a background in Augmented Reality research and an interest in hardware-software integration.</span>
+                        <span class="lang-es">Tengo un nivel de inglés fluido (C2) y actualmente estudio alemán. Más allá de la ingeniería de software, tengo experiencia en investigación de Realidad Aumentada y un gran interés en la integración de hardware y software.</span>
+                    </p>
+                </div>
+                <div class="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-xl border border-slate-100 dark:border-slate-700 transition-colors">
+                    <h4 class="font-bold text-slate-800 dark:text-slate-200 mb-4">
+                        <span class="lang-en">Education & Quick Facts</span>
+                        <span class="lang-es">Educación y Datos Rápidos</span>
+                    </h4>
+                    <ul class="space-y-3">
+                        <li>🎓 <strong><span class="lang-en">Master in Software Engineering</span><span class="lang-es">Maestría en Ingeniería de Software</span></strong> (UNLP) - <em><span class="lang-en">In Progress</span><span class="lang-es">En curso</span></em></li>
+                        <li>🎓 <strong><span class="lang-en">Computer Engineering</span><span class="lang-es">Ingeniería en Computación</span></strong> (UNLP)</li>
+                        <li>👨‍🏫 <span class="lang-en">University Professor</span><span class="lang-es">Profesor Universitario</span> (UNLP)</li>
+                        <li>🌍 <span class="lang-en">Languages: Spanish (Native), English (C2), German (A1)</span><span class="lang-es">Idiomas: Español (Nativo), Inglés (C2), Alemán (A1)</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-20 bg-slate-50 dark:bg-slate-800/20 transition-colors duration-300">
+        <div class="max-w-5xl mx-auto px-6">
+            <h3 class="text-3xl font-bold mb-8 text-slate-900 dark:text-white">
+                <span class="lang-en">Professional Experience</span>
+                <span class="lang-es">Experiencia Profesional</span>
+            </h3>
+            <div class="space-y-8">
+                
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 border-l-4 border-l-blue-600 dark:border-l-blue-500 transition-colors">
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 gap-2">
+                        <h4 class="text-xl font-bold text-slate-900 dark:text-white"><span class="lang-en">Full-Stack Engineer</span><span class="lang-es">Ingeniero Full-Stack</span></h4>
+                        <span class="text-sm font-semibold text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 px-3 py-1 rounded-full"><span class="lang-en">Sep 2025 - Present</span><span class="lang-es">Sep 2025 - Actualidad</span></span>
+                    </div>
+                    <p class="text-blue-600 dark:text-blue-400 font-medium mb-4">Jetpacks</p>
+                    <ul class="list-disc list-inside text-slate-600 dark:text-slate-400 space-y-2">
+                        <li>
+                            <span class="lang-en">Designed and developed over 10 custom integration tools for U.S. clients, reducing manual data entry by 78%.</span>
+                            <span class="lang-es">Diseñé y desarrollé más de 10 herramientas de integración a medida para clientes de EE.UU., reduciendo la carga manual de datos en un 78%.</span>
+                        </li>
+                        <li>
+                            <span class="lang-en">Led innovation projects integrating AI frameworks (LangChain, Stack AI) with models like Claude, Gemini, and ChatGPT.</span>
+                            <span class="lang-es">Lideré proyectos de innovación integrando frameworks de IA (LangChain, Stack AI) con modelos como Claude, Gemini y ChatGPT.</span>
+                        </li>
+                        <li>
+                            <span class="lang-en">Tested applicability of AI-driven development tools like OpenSec and BMAD.</span>
+                            <span class="lang-es">Testeé la aplicabilidad de herramientas de desarrollo impulsadas por IA como OpenSec y BMAD.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 border-l-4 border-l-blue-600 dark:border-l-blue-500 transition-colors">
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 gap-2">
+                        <h4 class="text-xl font-bold text-slate-900 dark:text-white"><span class="lang-en">University Professor</span><span class="lang-es">Profesor Universitario</span></h4>
+                        <span class="text-sm font-semibold text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 px-3 py-1 rounded-full"><span class="lang-en">Mar 2023 - Present</span><span class="lang-es">Mar 2023 - Actualidad</span></span>
+                    </div>
+                    <p class="text-blue-600 dark:text-blue-400 font-medium mb-4"><span class="lang-en">Faculty of Informatics UNLP</span><span class="lang-es">Facultad de Informática UNLP</span></p>
+                    <ul class="list-disc list-inside text-slate-600 dark:text-slate-400 space-y-2">
+                        <li>
+                            <span class="lang-en">Imparted and supported courses on algorithms, algorithm efficiency, data structures, object-oriented programming, and design patterns.</span>
+                            <span class="lang-es">Dictado de clases y apoyo en cursos de algoritmos, eficiencia de algoritmos, estructuras de datos, programación orientada a objetos y patrones de diseño.</span>
+                        </li>
+                        <li>
+                            <span class="lang-en">Enhanced student engagement and comprehension through practical application of complex software engineering concepts.</span>
+                            <span class="lang-es">Fomenté la participación y comprensión de los estudiantes a través de la aplicación práctica de conceptos complejos de ingeniería de software.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 transition-colors">
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 gap-2">
+                        <h4 class="text-xl font-bold text-slate-900 dark:text-white"><span class="lang-en">Back-End Developer</span><span class="lang-es">Desarrollador Back-End</span></h4>
+                        <span class="text-sm font-semibold text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 px-3 py-1 rounded-full"><span class="lang-en">Jul 2023 - Sep 2025</span><span class="lang-es">Jul 2023 - Sep 2025</span></span>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-300 font-medium mb-4">Danaide S.A.</p>
+                    <ul class="list-disc list-inside text-slate-600 dark:text-slate-400 space-y-2">
+                        <li>
+                            <span class="lang-en">Participated in the end-to-end development of over 20 backend systems using .NET and Java Spring.</span>
+                            <span class="lang-es">Participé en el desarrollo end-to-end de más de 20 sistemas backend usando .NET y Java Spring.</span>
+                        </li>
+                        <li>
+                            <span class="lang-en">Designed RESTful APIs and microservices, improving scalability for over 3000 concurrent requests.</span>
+                            <span class="lang-es">Diseñé APIs RESTful y microservicios, mejorando la escalabilidad para más de 3000 solicitudes concurrentes.</span>
+                        </li>
+                        <li>
+                            <span class="lang-en">Utilized Docker for containerization and implemented CI/CD practices in an Agile environment.</span>
+                            <span class="lang-es">Utilicé Docker para la contenerización e implementé prácticas CI/CD en un entorno Ágil.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 transition-colors">
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 gap-2">
+                        <h4 class="text-xl font-bold text-slate-900 dark:text-white"><span class="lang-en">Ad-Honorem R&D Engineer</span><span class="lang-es">Ingeniero I+D Ad-Honorem</span></h4>
+                        <span class="text-sm font-semibold text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 px-3 py-1 rounded-full"><span class="lang-en">Apr 2023 - May 2025</span><span class="lang-es">Abr 2023 - May 2025</span></span>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-300 font-medium mb-4">UNLP III LIDI</p>
+                    <ul class="list-disc list-inside text-slate-600 dark:text-slate-400 space-y-2">
+                        <li>
+                            <span class="lang-en">Conducted research in Augmented Reality and 3D digitization.</span>
+                            <span class="lang-es">Llevé a cabo investigaciones en Realidad Aumentada y digitalización 3D.</span>
+                        </li>
+                        <li>
+                            <span class="lang-en">Developed an AR application for studying surgical instruments, presented at TEYET and CACIC.</span>
+                            <span class="lang-es">Desarrollé una aplicación de RA para el estudio de instrumental quirúrgico, presentada en TEYET y CACIC.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 transition-colors">
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 gap-2">
+                        <h4 class="text-xl font-bold text-slate-900 dark:text-white"><span class="lang-en">Transport & Logistics Coordinator</span><span class="lang-es">Coordinador de Transporte y Logística</span></h4>
+                        <span class="text-sm font-semibold text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 px-3 py-1 rounded-full"><span class="lang-en">Feb 2021 - Jul 2023</span><span class="lang-es">Feb 2021 - Jul 2023</span></span>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-300 font-medium mb-4">Correo Argentino</p>
+                    <ul class="list-disc list-inside text-slate-600 dark:text-slate-400 space-y-2">
+                        <li>
+                            <span class="lang-en">Managed logistics coordination for a network of 60+ parcel carriers, ensuring seamless operations across multiple regions.</span>
+                            <span class="lang-es">Gestioné la coordinación logística para una red de más de 60 transportistas, asegurando operaciones fluidas en múltiples regiones.</span>
+                        </li>
+                        <li>
+                            <span class="lang-en">Automated manual billing processes by developing custom Python-based tools utilizing Pandas and OCR, significantly reducing bulk data entry errors.</span>
+                            <span class="lang-es">Automaticé procesos de facturación manuales desarrollando herramientas en Python (Pandas y OCR), reduciendo significativamente los errores en la carga masiva de datos.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-20 bg-white dark:bg-slate-900 border-y border-slate-200 dark:border-slate-800 transition-colors duration-300">
+        <div class="max-w-5xl mx-auto px-6">
+            <h3 class="text-3xl font-bold mb-8 text-slate-900 dark:text-white">
+                <span class="lang-en">Technical Arsenal</span>
+                <span class="lang-es">Arsenal Técnico</span>
+            </h3>
+            <div class="flex flex-wrap gap-3">
+                <span class="px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-full font-medium shadow-sm transition-colors">C#</span>
+                <span class="px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-full font-medium shadow-sm transition-colors">Java</span>
+                <span class="px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-full font-medium shadow-sm transition-colors">Python</span>
+                <span class="px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-full font-medium shadow-sm transition-colors">TypeScript</span>
+                <span class="px-4 py-2 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-300 rounded-full font-medium shadow-sm transition-colors">.NET 9</span>
+                <span class="px-4 py-2 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-300 rounded-full font-medium shadow-sm transition-colors">Spring Boot</span>
+                <span class="px-4 py-2 bg-sky-100 dark:bg-sky-900/50 text-sky-800 dark:text-sky-300 rounded-full font-medium shadow-sm transition-colors">React</span>
+                <span class="px-4 py-2 bg-sky-100 dark:bg-sky-900/50 text-sky-800 dark:text-sky-300 rounded-full font-medium shadow-sm transition-colors">Angular</span>
+                <span class="px-4 py-2 bg-slate-800 dark:bg-slate-700 text-white rounded-full font-medium shadow-sm transition-colors">Unity</span>
+                <span class="px-4 py-2 bg-purple-100 dark:bg-purple-900/50 text-purple-800 dark:text-purple-300 rounded-full font-medium shadow-sm transition-colors">Docker & Kubernetes</span>
+                <span class="px-4 py-2 bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-300 rounded-full font-medium shadow-sm transition-colors">Microservices</span>
+                <span class="px-4 py-2 bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-300 rounded-full font-medium shadow-sm transition-colors">CI/CD</span>
+                <span class="px-4 py-2 bg-orange-100 dark:bg-orange-900/50 text-orange-800 dark:text-orange-300 rounded-full font-medium shadow-sm transition-colors">Google Cloud</span>
+                <span class="px-4 py-2 bg-indigo-100 dark:bg-indigo-900/50 text-indigo-800 dark:text-indigo-300 rounded-full font-medium shadow-sm transition-colors">AI Integration (LangChain, LLMs)</span>
+                <span class="px-4 py-2 bg-slate-800 dark:bg-slate-700 text-white rounded-full font-medium shadow-sm transition-colors">SQL Server & Postgres</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="bg-slate-50 dark:bg-slate-800/20 py-20 transition-colors duration-300">
+        <div class="max-w-5xl mx-auto px-6">
+            <h3 class="text-3xl font-bold mb-8 text-slate-900 dark:text-white">
+                <span class="lang-en">Selected Work & Research</span>
+                <span class="lang-es">Proyectos y R&D Destacados</span>
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 p-8 hover:shadow-md transition-all flex flex-col">
+                    <h4 class="text-2xl font-bold mb-3 text-slate-900 dark:text-white">
+                        <span class="lang-en">Face Recognition Modernization</span>
+                        <span class="lang-es">Modernización de Reconocimiento Facial</span>
+                    </h4>
+                    <p class="text-slate-600 dark:text-slate-400 mb-6 flex-grow">
+                        <span class="lang-en">Architected and updated a legacy facial recognition system for a major governmental agency, ensuring strict compliance with safety standards and system reliability.</span>
+                        <span class="lang-es">Diseñé la arquitectura y actualicé un sistema legacy de reconocimiento facial para una importante agencia gubernamental, asegurando el estricto cumplimiento de estándares de seguridad y fiabilidad del sistema.</span>
+                    </p>
+                    <div class="mt-auto flex flex-wrap gap-2">
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded"><span class="lang-en">Architecture</span><span class="lang-es">Arquitectura</span></span>
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded"><span class="lang-en">Legacy Modernization</span><span class="lang-es">Modernización Legacy</span></span>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 p-8 hover:shadow-md transition-all flex flex-col">
+                    <h4 class="text-2xl font-bold mb-3 text-slate-900 dark:text-white">
+                        <span class="lang-en">Foliar Disease Prediction</span>
+                        <span class="lang-es">Predicción de Enfermedades Foliares</span>
+                    </h4>
+                    <p class="text-slate-600 dark:text-slate-400 mb-6 flex-grow">
+                        <span class="lang-en">Developed custom hardware and embedded software for predicting diseases in leaf crops within greenhouses. Earned special recognition from the Faculty of Informatics (UNLP).</span>
+                        <span class="lang-es">Desarrollé hardware a medida y software embebido para predecir enfermedades en cultivos de hoja en invernaderos. Obtuve un reconocimiento especial de la Facultad de Informática (UNLP).</span>
+                    </p>
+                    <div class="mt-auto flex flex-wrap gap-2">
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded"><span class="lang-en">Embedded Software</span><span class="lang-es">Software Embebido</span></span>
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded"><span class="lang-en">Hardware Design</span><span class="lang-es">Diseño de Hardware</span></span>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 p-8 hover:shadow-md transition-all flex flex-col">
+                    <h4 class="text-2xl font-bold mb-3 text-slate-900 dark:text-white">
+                        <span class="lang-en">AR Surgical Instruments</span>
+                        <span class="lang-es">Instrumental Quirúrgico en RA</span>
+                    </h4>
+                    <p class="text-slate-600 dark:text-slate-400 mb-6 flex-grow">
+                        <span class="lang-en">Designed and developed an Augmented Reality application for studying surgical instruments. The research was presented at both TEYET and CACIC conferences.</span>
+                        <span class="lang-es">Diseñé y desarrollé una aplicación de Realidad Aumentada para el estudio de instrumental quirúrgico. La investigación fue presentada en las conferencias TEYET y CACIC.</span>
+                    </p>
+                    <div class="mb-6 flex flex-wrap gap-2">
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">Unity</span>
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">C#</span>
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded"><span class="lang-en">Augmented Reality</span><span class="lang-es">Realidad Aumentada</span></span>
+                    </div>
+                    <a href="https://github.com/agulc/cgra-unlp" target="_blank" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline mt-auto inline-block w-max">
+                        <span class="lang-en">View Repository &rarr;</span>
+                        <span class="lang-es">Ver Repositorio &rarr;</span>
+                    </a>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 p-8 hover:shadow-md transition-all flex flex-col">
+                    <h4 class="text-2xl font-bold mb-3 text-slate-900 dark:text-white">
+                        <span class="lang-en">Raspberry Pi K3s Cluster</span>
+                        <span class="lang-es">Clúster K3s con Raspberry Pi</span>
+                    </h4>
+                    <p class="text-slate-600 dark:text-slate-400 mb-6 flex-grow">
+                        <span class="lang-en">Engineered a bare-metal Kubernetes cluster using K3s across a network of Raspberry Pis to explore container orchestration, distributed computing, and local infrastructure optimization.</span>
+                        <span class="lang-es">Ingenié un clúster bare-metal de Kubernetes usando K3s en una red de Raspberry Pis para explorar la orquestación de contenedores, la computación distribuida y la optimización de infraestructura local.</span>
+                    </p>
+                    <div class="mb-6 flex flex-wrap gap-2">
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">Kubernetes (K3s)</span>
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">Docker</span>
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded"><span class="lang-en">Infrastructure</span><span class="lang-es">Infraestructura</span></span>
+                    </div>
+                    <a href="https://github.com/tpII/2021-n10-kubernetes-rpi" target="_blank" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline mt-auto inline-block w-max">
+                        <span class="lang-en">View Repository &rarr;</span>
+                        <span class="lang-es">Ver Repositorio &rarr;</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 dark:bg-slate-950 text-slate-400 py-12 text-center transition-colors duration-300">
+        <p>
+            &copy; 2026 Agustin Leonardo Cao. 
+            <span class="lang-en">All rights reserved.</span>
+            <span class="lang-es">Todos los derechos reservados.</span>
+        </p>
+    </footer>
+
+    <script>
+        function toggleLanguage() {
+            const htmlTag = document.documentElement;
+            if (htmlTag.lang === "en") {
+                htmlTag.lang = "es";
+            } else {
+                htmlTag.lang = "en";
+            }
+        }
+
+        function toggleTheme() {
+            const htmlTag = document.documentElement;
+            htmlTag.classList.toggle('dark');
+            
+            // Save preference to local storage
+            if (htmlTag.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+        }
+    </script>
+
+</body>
+</html>
